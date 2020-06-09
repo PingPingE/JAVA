@@ -1,11 +1,13 @@
 package ex01;
 
 public class ExamList{
-	int current= 0;
-	Exam exams[] = new Exam[100000000];
+	int current;
+	Exam exams[];
 	
-	public ExamList() {
+	public ExamList(int current, Exam[] exams) {
 		super();
+		this.current = current;
+		this.exams = exams;
 	}
 	public void setExams(Exam target) {
 		this.exams[current] = target;

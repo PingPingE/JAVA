@@ -5,16 +5,18 @@ import java.util.Scanner;
 public class StructureProgramming {
 	static Scanner scan = new Scanner(System.in);
 	static String[] name= {"국어","영어","수학"};
-	static ExamList list  = new ExamList();
+	static ExamList list;
 	public static void main(String[] args) {
 		int menu;
 		boolean keepLoop = true;		
+
 		while (keepLoop) {
 			printmenu();
 			menu = scan.nextInt();
-
 			switch (menu) {
 				case 1:
+					System.out.println("몇 명을 입력하시겠습니까?");
+					 list = new ExamList(0,new Exam[scan.nextInt()]);
 					inputScore(list);
 					break;
 				case 2:
@@ -46,9 +48,8 @@ public class StructureProgramming {
 		System.out.println("│           성적  입력                      │");
 		System.out.println("└───────────────────────────┘");
 		System.out.println();
-		System.out.println("몇 명을 입력하시겠습니까?");
-		int num = scan.nextInt();
-		for(int i= 0 ; i<num; i++){
+
+		for(int i= 0 ; i<list.exams.length ; i++){
 			int score[] = {0,0,0};
 			for (int j=0; j<3; j++)
 			{
